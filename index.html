@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Infografía interactiva sobre biología botánica, purificación del aire y cuidados básicos de plantas de interior.">
+  <title>El Poder de las Plantas | Biología Cotidiana</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%23FFD166'/></svg>">
+</head>
+
+<body>
+
+  <!-- ================= HERO ================= -->
+  <section id="s-hero" class="hero">
+    <!-- SVGs flotantes decorativos -->
+    <svg class="svg-decor star1" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+    </svg>
+    <svg class="svg-decor star2" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+    </svg>
+    <svg class="svg-decor blob" viewBox="0 0 200 200" fill="currentColor">
+      <path
+        d="M45.7,-76.1C58.9,-69.3,69.1,-55.4,76.5,-40.7C83.9,-26,88.5,-10.6,86.2,3.9C83.9,18.4,74.7,31.9,64.8,43.7C54.8,55.5,44.1,65.6,31.2,71.7C18.3,77.8,3.2,79.9,-10.9,77.6C-25,75.3,-38.1,68.6,-50.2,60.1C-62.3,51.6,-73.4,41.3,-80.6,28.2C-87.8,15.1,-91.1,-0.8,-88.2,-15.8C-85.3,-30.8,-76.2,-44.9,-63.9,-53.4C-51.6,-61.9,-36.1,-64.8,-21.9,-68.8C-7.7,-72.8,5.2,-77.9,19.3,-79.6C33.4,-81.3,47.8,-79.6,45.7,-76.1Z"
+        transform="translate(100 100)" />
+    </svg>
+
+    <div class="container pop-in">
+      <span class="title-badge">Biología Cotidiana</span>
+      <h1 class="section-title">El mundo oculto<br>de tus plantas</h1>
+      <p class="hero__intro">
+        Mucho más que decoración. Descubre cómo las plantas de interior purifican el aire, regulan la humedad y
+        mejoran tu bienestar — todo respaldado por la ciencia.
+      </p>
+
+      <div class="hero__gallery">
+        <div class="photo-card">
+          <div class="tape"></div>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Starr_080731-9571_Monstera_deliciosa.jpg/500px-Starr_080731-9571_Monstera_deliciosa.jpg"
+            alt="Grupo de plantitas">
+        </div>
+        <div class="photo-card">
+          <div class="tape"></div>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Epipremnum_aureum_31082012.jpg"
+            alt="Ficus Lyrata">
+        </div>
+        <div class="photo-card">
+          <div class="tape"></div>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Sansevieria_trifasciata_Plant_3264px.jpg/500px-Sansevieria_trifasciata_Plant_3264px.jpg"
+            alt="Sansevieria">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SUPERPODERES ================= -->
+  <section id="s-datos" class="superpowers">
+    <div class="container">
+      <div style="text-align: center;" class="pop-in">
+        <span class="title-badge">Impacto Científico</span>
+        <h2 class="section-title">Lo que la ciencia descubrió</h2>
+      </div>
+
+      <div class="power-grid">
+
+        <!-- Dato 1 -->
+        <div class="power-card power-card--1 pop-in">
+          <div class="power-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2" />
+            </svg>
+          </div>
+          <h3>Filtro Botánico Activo</h3>
+          <p>Según el "Clean Air Study" de la NASA, ciertas raíces y hojas absorben Compuestos Orgánicos Volátiles
+            (VOCs) como el benceno, transmutándolos en alimento biológico.</p>
+
+          <div class="progress-container">
+            <div class="progress-label"><span>Tasa de Purificación</span><span>89%</span></div>
+            <div class="progress-bar">
+              <div class="progress-fill" data-width="89%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dato 2 -->
+        <div class="power-card power-card--2 pop-in">
+          <div class="power-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5" />
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </svg>
+          </div>
+          <h3>Regulación de Cortisol</h3>
+          <p>La psicología ambiental demuestra que la exposición visual a la naturaleza activa el sistema nervioso
+            parasimpático, reduciendo significativamente los niveles de estrés y fatiga mental.</p>
+
+          <div class="progress-container">
+            <div class="progress-label"><span>Reducción de Estrés</span><span>75%</span></div>
+            <div class="progress-bar">
+              <div class="progress-fill" data-width="75%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dato 3 -->
+        <div class="power-card power-card--3 pop-in">
+          <div class="power-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
+              <line x1="8" y1="20" x2="8" y2="23"/>
+              <line x1="12" y1="20" x2="12" y2="23"/>
+              <line x1="16" y1="20" x2="16" y2="23"/>
+            </svg>
+          </div>
+          <h3>Microclima Controlado</h3>
+          <p>Mediante la evapotranspiración, las plantas devuelven el 97% del agua absorbida al aire circundante,
+            creando un ambiente más húmedo y confortable para tus vías respiratorias.</p>
+
+          <div class="progress-container">
+            <div class="progress-label"><span>Aumento de Humedad</span><span>60%</span></div>
+            <div class="progress-bar">
+              <div class="progress-fill" data-width="60%"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TAXONOMIA ================= -->
+  <section id="s-especies" class="friends">
+    <div class="container">
+      <div style="text-align: center;" class="pop-in">
+        <span class="title-badge">Taxonomía Interactiva</span>
+        <h2 class="section-title">Elige a tu compañera</h2>
+        <p style="font-weight: 500; margin-bottom: 2rem;">Haz clic en cada especie para acceder a su ficha técnica
+          completa.</p>
+      </div>
+
+      <div class="friends-grid">
+
+        <!-- Especie 1 -->
+        <div class="friend-card friend-card--1 pop-in" data-name="Monstera Deliciosa"
+          data-sub="Familia: Araceae | Origen: México"
+          data-img="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Starr_080731-9571_Monstera_deliciosa.jpg/500px-Starr_080731-9571_Monstera_deliciosa.jpg"
+          data-color="var(--c-pink)"
+          data-desc="Una planta hemiepífita fascinante. Sus icónicos agujeros (fenestración) son una adaptación evolutiva a las densas selvas: permiten que el viento pase sin romper la hoja y dejan que la luz llegue a las hojas inferiores."
+          data-luz="Luz indirecta brillante." data-agua="Riego moderado. Dejar secar el 50% superior."
+          data-extra="Crece como enredadera, necesita un tutor/palo de musgo." data-diff="Fácil">
+          <div class="friend-card__img-wrapper">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Starr_080731-9571_Monstera_deliciosa.jpg/500px-Starr_080731-9571_Monstera_deliciosa.jpg"
+              alt="Costilla de Adán">
+          </div>
+          <div class="friend-card__info">
+            <h4>Ingeniería Foliar</h4>
+            <h3>Costilla de Adán</h3>
+            <div class="friend-tags">
+              <span class="tag">Fenestrada</span>
+              <span class="tag">Trepador</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Especie 2 -->
+        <div class="friend-card friend-card--2 pop-in" data-name="Epipremnum Aureum"
+          data-sub="Familia: Araceae | Origen: Sudeste Asiático"
+          data-img="https://upload.wikimedia.org/wikipedia/commons/9/9d/Epipremnum_aureum_31082012.jpg"
+          data-color="var(--c-blue)"
+          data-desc="Reconocida internacionalmente por su increíble resiliencia. Es capaz de prosperar bajo iluminación fluorescente de oficinas y posee una tasa metabólica muy alta para purificar el aire de interiores."
+          data-luz="Muy adaptable. De luz baja a indirecta brillante."
+          data-agua="Riego al secarse completamente la tierra. Sus hojas avisan cayéndose ligeramente."
+          data-extra="Fácilmente propagable por esquejes en agua." data-diff="Súper Fácil">
+          <div class="friend-card__img-wrapper">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Epipremnum_aureum_31082012.jpg" alt="Potus">
+          </div>
+          <div class="friend-card__info">
+            <h4>Adaptabilidad Extrema</h4>
+            <h3>Potus</h3>
+            <div class="friend-tags">
+              <span class="tag">Colgante</span>
+              <span class="tag">Purificador</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Especie 3 -->
+        <div class="friend-card friend-card--3 pop-in" data-name="Spathiphyllum"
+          data-sub="Familia: Araceae | Origen: América Tropical"
+          data-img="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Spathiphyllum_montanum.jpg/500px-Spathiphyllum_montanum.jpg"
+          data-color="var(--c-yellow)"
+          data-desc="A diferencia de la mayoría de plantas de interior, el Lirio de Paz es capaz de producir vistosas estructuras florales (espatas) incluso en condiciones de poca luz. Es excelente elevando la humedad ambiental."
+          data-luz="Luz media a baja. El sol directo quema sus hojas rápidamente."
+          data-agua="Alta demanda hídrica. No tolera la sequía prolongada."
+          data-extra="Avisa dramáticamente su falta de agua marchitándose por completo, pero se recupera rápido al regar."
+          data-diff="Moderado">
+          <div class="friend-card__img-wrapper">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Spathiphyllum_montanum.jpg/500px-Spathiphyllum_montanum.jpg"
+              alt="Lirio de la Paz">
+          </div>
+          <div class="friend-card__info">
+            <h4>Eficiencia Hídrica</h4>
+            <h3>Lirio de Paz</h3>
+            <div class="friend-tags">
+              <span class="tag">Floración Frecuente</span>
+              <span class="tag">Dramática</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Especie 4 -->
+        <div class="friend-card friend-card--4 pop-in" data-name="Dracaena Trifasciata"
+          data-sub="Familia: Asparagaceae | Origen: África Tropical"
+          data-img="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Snake_Plant_%28Sansevieria_trifasciata_%27Laurentii%27%29.jpg/500px-Snake_Plant_%28Sansevieria_trifasciata_%27Laurentii%27%29.jpg"
+          data-color="var(--c-purple)"
+          data-desc="Utiliza un metabolismo fotosintético diferente al resto (CAM), lo que le permite mantener sus poros cerrados durante el caluroso día para ahorrar agua, y abrirlos de noche para intercambiar oxígeno por dióxido de carbono."
+          data-luz="Tolerancia universal. Vive en sol directo o en un baño sin ventanas."
+          data-agua="Casi nulo. Regar sólo cuando la tierra esté seca como un desierto (cada 3-4 semanas)."
+          data-extra="Crecimiento vertical arquitectónico, excelente para espacios estrechos."
+          data-diff="Indestructible">
+          <div class="friend-card__img-wrapper">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Snake_Plant_%28Sansevieria_trifasciata_%27Laurentii%27%29.jpg/500px-Snake_Plant_%28Sansevieria_trifasciata_%27Laurentii%27%29.jpg"
+              alt="Lengua de Suegra">
+          </div>
+          <div class="friend-card__info">
+            <h4>Fotosíntesis Nocturna</h4>
+            <h3>Lengua de Suegra</h3>
+            <div class="friend-tags">
+              <span class="tag">Planta CAM</span>
+              <span class="tag">Cero Mantenimiento</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ESCUELA DE PLANTITAS ================= -->
+  <section id="s-cuidados" class="school">
+    <div class="container">
+      <div style="text-align: center;" class="pop-in">
+        <span class="title-badge">Escuela de Plantas</span>
+        <h2 class="section-title">Guía de Cuidados Esenciales</h2>
+      </div>
+
+      <div class="carousel-wrapper">
+        <div class="lessons" id="lessonsCarousel">
+
+        <!-- Lección 1: Riego -->
+        <div class="lesson-card pop-in">
+          <div class="lesson-header">
+            <div class="lesson-icon">
+              <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2C8.5 7 5 12 5 15.5a7 7 0 0 0 14 0C19 12 15.5 7 12 2z"/>
+                <path d="M9 16.5a3.5 3.5 0 0 0 4.5 1" stroke-opacity="0.55"/>
+              </svg>
+            </div>
+            <h3>Riego</h3>
+            <p class="lesson-subtitle">El cuidado más crítico</p>
+          </div>
+          <div class="lesson-body">
+            <div class="lesson-tip">
+              Mete un dedo 3 cm en la tierra — riega solo si está completamente seca al tacto.
+            </div>
+            <ul>
+              <li>El exceso de agua mata más plantas que la sequía. Con la tierra siempre mojada, las raíces se pudren.</li>
+              <li>Usa macetas con agujeros de drenaje. El agua estancada en el fondo asfixia las raíces en días.</li>
+              <li>En otoño e invierno reduce el riego a la mitad: las plantas descansan y absorben mucho menos agua.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Lección 2: Luz -->
+        <div class="lesson-card pop-in">
+          <div class="lesson-header">
+            <div class="lesson-icon">
+              <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="4"/>
+                <line x1="12" y1="2" x2="12" y2="5"/>
+                <line x1="12" y1="19" x2="12" y2="22"/>
+                <line x1="2" y1="12" x2="5" y2="12"/>
+                <line x1="19" y1="12" x2="22" y2="12"/>
+                <line x1="4.93" y1="4.93" x2="7.05" y2="7.05"/>
+                <line x1="16.95" y1="16.95" x2="19.07" y2="19.07"/>
+                <line x1="4.93" y1="19.07" x2="7.05" y2="16.95"/>
+                <line x1="16.95" y1="7.05" x2="19.07" y2="4.93"/>
+              </svg>
+            </div>
+            <h3>Luz</h3>
+            <p class="lesson-subtitle">El combustible de la fotosíntesis</p>
+          </div>
+          <div class="lesson-body">
+            <div class="lesson-tip">
+              Luz indirecta brillante = leer un libro junto a una ventana sin que el sol te dé directo en la cara.
+            </div>
+            <ul>
+              <li>La mayoría de plantas de interior prefieren luz indirecta: cerca de una ventana, pero sin sol directo.</li>
+              <li>El vidrio magnifica el calor: a pleno sol contra el cristal, las hojas se queman en minutos.</li>
+              <li>Gira la maceta 180° cada mes para que crezca pareja y no se incline toda hacia la ventana.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Lección 3: Sustrato -->
+        <div class="lesson-card pop-in">
+          <div class="lesson-header">
+            <div class="lesson-icon">
+              <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="22" x2="12" y2="11"/>
+                <path d="M12 11C12 7 16 4 20 5c0 4-4 7-8 6z"/>
+                <path d="M12 11C12 7 8 4 4 5c0 4 4 7 8 6z"/>
+                <line x1="5" y1="22" x2="19" y2="22"/>
+              </svg>
+            </div>
+            <h3>Sustrato</h3>
+            <p class="lesson-subtitle">Las raíces también respiran</p>
+          </div>
+          <div class="lesson-body">
+            <div class="lesson-tip">
+              Mezcla tierra con 20–30% de perlita o pumita para que drene bien y las raíces no se asfixien.
+            </div>
+            <ul>
+              <li>Tierra compactada bloquea el oxígeno y crea bacterias dañinas. Aireala mezclando con perlita o arena gruesa.</li>
+              <li>Trasplanta cuando veas raíces saliendo por los agujeros o cuando el crecimiento se detenga.</li>
+              <li>Sube solo un tamaño de maceta (2–3 cm más): una maceta muy grande acumula humedad y pudre las raíces.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div> <!-- Fin de .lessons -->
+      
+      <div class="carousel-dots" id="carouselDots">
+        <span class="dot active" data-index="0"></span>
+        <span class="dot" data-index="1"></span>
+        <span class="dot" data-index="2"></span>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer-cute">
+    <div class="container">
+      <div class="footer-icon">
+        <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="22" x2="12" y2="11"/>
+          <path d="M12 11C12 7 16 4 20 5c0 4-4 7-8 6z"/>
+          <path d="M12 11C12 7 8 4 4 5c0 4 4 7 8 6z"/>
+          <line x1="5" y1="22" x2="19" y2="22"/>
+        </svg>
+      </div>
+      <h2>¡Adopta una plantita hoy!</h2>
+      <p class="footer-desc">Cada planta que traes a casa es un paso hacia un ambiente más sano y un hogar más vivo.</p>
+      <nav class="footer-nav">
+        <a href="#s-hero">Inicio</a>
+        <a href="#s-datos">Superpoderes</a>
+        <a href="#s-especies">Especies</a>
+        <a href="#s-cuidados">Cuidados</a>
+      </nav>
+      <p class="footer-credit">Hecho con cariño y un poquito de clorofila.</p>
+    </div>
+  </footer>
+
+  <!-- ================= MODAL DE PLANTA ================= -->
+  <div id="plantModal" class="modal-overlay">
+    <div class="modal-box">
+      <button id="closeModal" class="modal-close" aria-label="Cerrar modal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="modal-header">
+        <div id="m-imgWrap" class="modal-image">
+          <img id="m-img" src="" alt="">
+        </div>
+        <h2 id="m-title" class="modal-title">Nombre</h2>
+        <h3 id="m-sub" class="modal-subtitle">Subtitulo</h3>
+      </div>
+
+      <div class="modal-body">
+        <p id="m-desc" class="modal-desc">Descripcion</p>
+
+        <div class="modal-care-grid">
+          <div class="modal-care-item">
+            <strong>Dificultad</strong>
+            <span id="m-diff"></span>
+          </div>
+          <div class="modal-care-item">
+            <strong>Luz Ideal</strong>
+            <span id="m-luz"></span>
+          </div>
+          <div class="modal-care-item">
+            <strong>Riego</strong>
+            <span id="m-agua"></span>
+          </div>
+          <div class="modal-care-item">
+            <strong>Dato Extra</strong>
+            <span id="m-extra"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

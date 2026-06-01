@@ -423,7 +423,7 @@ function initQuiz() {
     document.getElementById('quizResultDiff').textContent = plant.experiencia.charAt(0).toUpperCase() + plant.experiencia.slice(1);
     document.getElementById('quizResultDato').textContent = plant.dato;
     const imgWrap = document.getElementById('quizResultImgWrap');
-    imgWrap.style.backgroundColor = plant.color;
+    imgWrap.style.backgroundColor = '#e8f5e9';
     const img = document.getElementById('quizResultImg');
     img.src = plant.img;
     img.alt = plant.common || plant.name;

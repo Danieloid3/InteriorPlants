@@ -501,10 +501,10 @@ section {
   .friend-card__img-wrapper { width: 140px; height: 140px; }
 }
 
-.friend-card--1 .friend-card__img-wrapper { background-color: var(--c-mint); }
-.friend-card--2 .friend-card__img-wrapper { background-color: var(--c-blue); border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-.friend-card--3 .friend-card__img-wrapper { background-color: var(--c-yellow); border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
-.friend-card--4 .friend-card__img-wrapper { background-color: var(--c-purple); border-radius: 50% 50% 20% 80% / 25% 80% 20% 75%; }
+.friend-card--1 .friend-card__img-wrapper { background-color: #e8f5e9; }
+.friend-card--2 .friend-card__img-wrapper { background-color: #e8f5e9; border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+.friend-card--3 .friend-card__img-wrapper { background-color: #e8f5e9; border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+.friend-card--4 .friend-card__img-wrapper { background-color: #e8f5e9; border-radius: 50% 50% 20% 80% / 25% 80% 20% 75%; }
 
 .friend-card__img-wrapper img {
   width: 100%;
@@ -875,7 +875,7 @@ section {
   border: var(--border-width) solid var(--border-color);
   border-radius: var(--radius-blob);
   overflow: hidden;
-  background: var(--c-mint);
+  background: #e8f5e9;
   box-shadow: inset 0 0 0 4px white;
 }
 

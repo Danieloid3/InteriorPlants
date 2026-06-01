@@ -9,8 +9,35 @@ const CORS = {
 export default async function handler(req: Request): Promise<Response> {
   if (req.method === "OPTIONS") return new Response(null, { headers: CORS });
 
+  const dbUrl = Deno.env.get("DATABASE_URL");
+  if (!dbUrl) {
+    return new Response(JSON.stringify({ error: "DATABASE_URL not configured" }), {
+      status: 500,
+      headers: { ...CORS, "Content-Type": "application/json" },
+    });
+  }
+
   try {
-    const sql = neon(Deno.env.get("DATABASE_URL")!);
+    const sql = neon(dbUrl);
+
+    // Crear tablas si no existen (primera visita al dashboard)
+    await sql`CREATE TABLE IF NOT EXISTS visits (
+      id SERIAL PRIMARY KEY,
+      ip VARCHAR(50),
+      visited_at TIMESTAMPTZ DEFAULT NOW()
+    )`;
+    await sql`CREATE TABLE IF NOT EXISTS quiz_submissions (
+      id SERIAL PRIMARY KEY,
+      ip VARCHAR(50),
+      name VARCHAR(100),
+      answer_luz VARCHAR(20),
+      answer_espacio VARCHAR(20),
+      answer_riego VARCHAR(20),
+      answer_experiencia VARCHAR(20),
+      answer_valor VARCHAR(20),
+      result_plant VARCHAR(100),
+      submitted_at TIMESTAMPTZ DEFAULT NOW()
+    )`;
 
     const [
       totalVisitsRows,

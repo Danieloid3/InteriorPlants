@@ -420,7 +420,9 @@
       lucide.createIcons();
       renderCharts(d);
     } catch (e) {
-      document.getElementById('dashLoading').textContent = 'Error al cargar datos: ' + e.message;
+      document.getElementById('dashLoading').innerHTML =
+        '<strong style="color:#EF476F">Error al cargar datos:</strong><br><code style="font-size:0.85rem">' + e.message + '</code>' +
+        '<br><br><span style="font-size:0.85rem;opacity:0.6">Verifica que la variable <code>DATABASE_URL</code> esté configurada en Netlify → Site Settings → Environment Variables.</span>';
     }
   }
 

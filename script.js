@@ -247,7 +247,7 @@ function initQuiz() {
       desc: 'Sus agujeros en las hojas no son un defecto, ¡son su superpoder! Los desarrolló para aguantar vientos fuertes en la selva y dejar pasar la luz a sus vecinas de abajo.',
       cuidado: 'Luz indirecta brillante', riego: 'Cada 1 o 2 semanas',
       dato: 'Puede crecer hasta 3 metros dentro de tu casa. Con un palo de musgo, trepa feliz y saca hojas enormes.',
-      img: '', color: 'var(--c-pink)',
+      img: 'https://i.pinimg.com/originals/02/44/09/0244091b32b048107fb95e98793eb989.jpg', color: 'var(--c-pink)',
     },
     {
       name: 'Epipremnum Aureum', common: 'Poto / Pothos',
@@ -256,7 +256,7 @@ function initQuiz() {
       desc: 'Esta planta no conoce el rendirse. Crece en oficinas oscuras, en rincones sin ventana, y hasta olvidada semanas enteras. La amiga más tolerante del reino vegetal.',
       cuidado: 'Tolera desde poca luz hasta indirecta brillante', riego: 'Cuando la tierra esté seca',
       dato: 'La NASA la usó en sus estudios de purificación de aire: se come el formaldehído y el benceno.',
-      img: '', color: 'var(--c-blue)',
+      img: 'https://d.newsweek.com/en/full/1978483/when-plant-pothos-plant.jpg', color: 'var(--c-blue)',
     },
     {
       name: 'Dracaena Trifasciata', common: 'Lengua de Suegra / Sanseviera',
@@ -265,7 +265,7 @@ function initQuiz() {
       desc: 'Duerme durante el día para no perder agua, y respira de noche. Es como una planta con turno nocturno. Casi no necesita riego y sobrevive en los rincones más olvidados.',
       cuidado: 'Cualquier luz, incluso baños sin ventana', riego: 'Cada 3 a 6 semanas',
       dato: 'Perfecta para el cuarto: absorbe CO₂ de noche y suelta O₂, al revés que la mayoría de plantas.',
-      img: '', color: 'var(--c-purple)',
+      img: 'https://o-remonte.com/wp-content/uploads/2021/07/Sansevieriya.jpg', color: 'var(--c-purple)',
     },
     {
       name: 'Spathiphyllum', common: 'Lirio de Paz / Cuna de Moisés',
@@ -274,7 +274,7 @@ function initQuiz() {
       desc: 'Hace algo que pocas logran: florecer dentro de casa, sin sol directo. Y cuando tiene sed, te lo dice de la manera más dramática posible: se deja caer todita. Pero con agua vuelve.',
       cuidado: 'Poca a media luz, ambiente húmedo', riego: 'Frecuente, no dejarla secar',
       dato: 'Purifica el aire de amoníaco y acetona. Bonita y útil, la combinación perfecta.',
-      img: '', color: 'var(--c-yellow)',
+      img: 'https://jardinurbano.com.uy/wp-content/uploads/2022/01/Spathiphyllum-en-maceta.jpg', color: 'var(--c-yellow)',
     },
     {
       name: 'Ficus Lyrata', common: 'Ficus Lira / Violinero',
@@ -283,7 +283,7 @@ function initQuiz() {
       desc: 'El árbol favorito de los diseñadores de interiores. Sus hojas enormes en forma de violín son puro impacto visual. Eso sí, es un poco dramático: odia que lo muevan.',
       cuidado: 'Mucha luz indirecta, no cambiarla de lugar', riego: 'Moderado, verificar tierra',
       dato: 'Si lo cambias de sitio puede botar todas las hojas de un día para otro. Y luego volver a sacarlas cuando se acostumbra.',
-      img: '', color: 'var(--c-mint)',
+      img: 'https://images.squarespace-cdn.com/content/v1/64067c5471624b6a98a0228c/1678148164421-SV30PJ7XVQOH9QGLKW2O/image-asset.png', color: 'var(--c-mint)',
     },
     {
       name: 'Aloe Vera', common: 'Sábila',
@@ -292,7 +292,7 @@ function initQuiz() {
       desc: 'Una farmacia en maceta. Necesita sol y casi nada de agua. Y si te quemas o te pica algo, abres una hoja y te la unta. Lleva miles de años en la casa de la gente y por algo es.',
       cuidado: 'Sol directo o luz muy brillante', riego: 'Cada 2 o 3 semanas',
       dato: 'El gel de sus hojas se usa en cremas, medicamentos y hasta en bebidas. Es una planta de verdad útil.',
-      img: '', color: 'var(--c-orange)',
+      img: 'https://growyouryard.com/wp-content/uploads/2020/09/how-long-does-it-take-for-aloe-vera-to-grow-2048x1365.jpg', color: 'var(--c-orange)',
     },
     {
       name: 'Calathea Orbifolia', common: 'Calatea',
@@ -301,7 +301,7 @@ function initQuiz() {
       desc: 'La obra de arte del reino vegetal. Sus hojas rayadas en verde y plata son hipnóticas. Eso sí, es exigente: necesita agua sin cloro, humedad alta y mucha atención.',
       cuidado: 'Luz indirecta, agua sin cloro, humedad constante', riego: 'Frecuente y con cuidado',
       dato: 'Sus hojas se mueven durante el día siguiendo la luz. De noche se enrollan. Todo en silencio.',
-      img: '', color: 'var(--c-pink)',
+      img: 'https://plantglossary.com/wp-content/uploads/2024/04/Calathea-Ornata-Pinstripe-Calathea.jpg', color: 'var(--c-pink)',
     },
     {
       name: 'Zamioculcas Zamiifolia', common: 'ZZ Plant / Zamioculca',
@@ -310,7 +310,7 @@ function initQuiz() {
       desc: 'El superhéroe del descuido. Tolera oscuridad, sequía y abandono total. Si pudieras matar esta planta, sería todo un logro. Casi no se puede.',
       cuidado: 'Cualquier luz, incluso muy poca', riego: 'Muy esporádico, cada mes o más',
       dato: 'Guarda agua en unos bulbos subterráneos. Por eso aguanta tanto sin riego: tiene su propia reserva.',
-      img: '', color: 'var(--c-mint)',
+      img: 'https://www.petalrepublic.com/wp-content/uploads/2020/09/The-Most-Popular-ZZ-Plant-Varieties-e1600090897264.jpg', color: 'var(--c-mint)',
     },
     {
       name: 'Helecho de Boston', common: 'Helecho Colgante',
@@ -319,7 +319,7 @@ function initQuiz() {
       desc: 'Crea ese ambiente fresco y selvático que convierte cualquier rincón en algo especial. Perfecta para baños o cocinas donde hay humedad natural.',
       cuidado: 'Luz indirecta, no le gusta el sol directo', riego: 'Frecuente, tierra siempre algo húmeda',
       dato: 'Es uno de los mejores purificadores de aire del mundo vegetal. Se come el formaldehído con ganas.',
-      img: '', color: 'var(--c-blue)',
+      img: 'https://www.jardinjosefina.cl/wp-content/uploads/2024/02/helecho_boston.jpg', color: 'var(--c-blue)',
     },
     {
       name: 'Ficus Elastica', common: 'Caucho / Árbol de Caucho',
@@ -328,7 +328,7 @@ function initQuiz() {
       desc: 'Hojas grandes, brillantes y oscuras que hacen que cualquier espacio se vea más elegante. Purifica el aire y crece despacio, así que dura mucho tiempo contigo.',
       cuidado: 'Luz indirecta brillante, limpiar las hojas', riego: 'Moderado, dejar secar entre riegos',
       dato: 'De su savia se fabricó el caucho natural durante años. Hoy está en tu sala, más tranquila.',
-      img: '', color: 'var(--c-purple)',
+      img: 'https://tse1.mm.bing.net/th/id/OIP.K_ft_vWVn0BU54y6YgyT3AHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3', color: 'var(--c-purple)',
     },
     {
       name: 'Crassula Ovata', common: 'Planta Jade / Árbol de Jade',
@@ -337,7 +337,7 @@ function initQuiz() {
       desc: 'Parece esculpida en madera, con hojas que brillan como piedras verdes. Suculenta que vive muchos años y no pide casi nada. La tienen en las casas de abuelas de todo el mundo.',
       cuidado: 'Mucha luz, tierra que drene bien', riego: 'Mínimo, es suculenta',
       dato: 'En muchas culturas se regala como símbolo de buena suerte y prosperidad. Quizás por eso sobrevive tanto.',
-      img: '', color: 'var(--c-orange)',
+      img: 'https://cdn.mos.cms.futurecdn.net/8V37anNuyg7s3u9uanCgHT-1600-80.jpg', color: 'var(--c-orange)',
     },
     {
       name: 'Anthurium', common: 'Anturio',
@@ -346,7 +346,7 @@ function initQuiz() {
       desc: 'Puro color y actitud. Sus espatas lacadas en rojo brillante florecen varias veces al año y duran semanas. Una de las plantas más bonitas para regalar o quedarse.',
       cuidado: 'Luz indirecta brillante, sin sol directo', riego: 'Frecuente pero sin encharcar',
       dato: 'Lo que parece la flor roja es en realidad una hoja modificada. La flor de verdad es el palito central.',
-      img: '', color: 'var(--c-pink)',
+      img: 'https://cdn.mos.cms.futurecdn.net/UToRRP2vRoz6gt5dUfgBA8.jpg', color: 'var(--c-pink)',
     },
   ];
 

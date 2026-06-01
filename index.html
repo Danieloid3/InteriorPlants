@@ -7,6 +7,7 @@
   <meta name="description"
     content="Infografía interactiva sobre biología botánica, purificación del aire y cuidados básicos de plantas de interior.">
   <title>El Poder de las Plantas | Biología Cotidiana</title>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <link rel="stylesheet" href="styles.css">
   <link rel="icon"
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%23FFD166'/></svg>">
@@ -67,7 +68,7 @@
         <h2 class="section-title">Lo que la ciencia descubrió</h2>
       </div>
 
-      <div class="power-grid">
+      <div class="power-grid" id="powerCarousel">
 
         <!-- Dato 1 -->
         <div class="power-card power-card--1 pop-in">
@@ -141,6 +142,11 @@
         </div>
 
       </div>
+      <div class="carousel-dots" id="powerDots">
+        <span class="dot active" data-index="0"></span>
+        <span class="dot" data-index="1"></span>
+        <span class="dot" data-index="2"></span>
+      </div>
     </div>
   </section>
 
@@ -154,7 +160,7 @@
           completa.</p>
       </div>
 
-      <div class="friends-grid">
+      <div class="friends-grid" id="friendsCarousel">
 
         <!-- Especie 1 -->
         <div class="friend-card friend-card--1 pop-in" data-name="Monstera Deliciosa"
@@ -248,6 +254,12 @@
           </div>
         </div>
 
+      </div>
+      <div class="carousel-dots" id="friendsDots">
+        <span class="dot active" data-index="0"></span>
+        <span class="dot" data-index="1"></span>
+        <span class="dot" data-index="2"></span>
+        <span class="dot" data-index="3"></span>
       </div>
     </div>
   </section>
@@ -372,6 +384,7 @@
       </div>
       <h2>¡Adopta una plantita hoy!</h2>
       <p class="footer-desc">Cada planta que traes a casa es un paso hacia un ambiente más sano y un hogar más vivo.</p>
+      <button id="startQuiz" class="quiz-cta-btn"><i data-lucide="leaf" class="quiz-icon"></i> Descubre tu Planta Ideal</button>
       <nav class="footer-nav">
         <a href="#s-hero">Inicio</a>
         <a href="#s-datos">Superpoderes</a>
@@ -424,6 +437,137 @@
       </div>
     </div>
   </div>
+
+  <!-- ================= MODAL DEL QUIZ ================= -->
+  <div id="quizModal" class="quiz-overlay">
+    <div class="quiz-box">
+      <button id="closeQuiz" class="modal-close" aria-label="Cerrar quiz">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <!-- Barra de progreso -->
+      <div class="quiz-progress" id="quizProgress">
+        <span class="quiz-progress-dot" data-step="1"></span>
+        <span class="quiz-progress-dot" data-step="2"></span>
+        <span class="quiz-progress-dot" data-step="3"></span>
+        <span class="quiz-progress-dot" data-step="4"></span>
+        <span class="quiz-progress-dot" data-step="5"></span>
+      </div>
+
+      <!-- Paso 0: Intro -->
+      <div class="quiz-step active" id="quiz-step-0">
+        <div class="quiz-plant-icon"><i data-lucide="sprout"></i></div>
+        <h2 class="quiz-title">Encuentra tu<br>Planta Ideal</h2>
+        <p class="quiz-subtitle">Responde 5 preguntas y descubriremos cuál es la planta perfecta para ti</p>
+        <div class="quiz-name-wrap">
+          <label for="quizName" class="quiz-label">¿Cómo te llamas?</label>
+          <input type="text" id="quizName" class="quiz-input" placeholder="Tu nombre..." autocomplete="off" maxlength="30">
+        </div>
+        <button class="quiz-btn" id="quizStart">Comenzar →</button>
+      </div>
+
+      <!-- Paso 1: Luz -->
+      <div class="quiz-step" id="quiz-step-1">
+        <p class="quiz-question-num">Pregunta 1 de 5</p>
+        <h3 class="quiz-question">¿Cuánta luz natural recibe tu espacio?</h3>
+        <div class="quiz-options">
+          <button class="quiz-option" data-q="0" data-val="alta"><i data-lucide="sun" class="quiz-icon"></i> Mucha luz directa<span>Ventana muy soleada</span></button>
+          <button class="quiz-option" data-q="0" data-val="media"><i data-lucide="cloud-sun" class="quiz-icon"></i> Luz indirecta brillante<span>Cerca de ventana, sin sol directo</span></button>
+          <button class="quiz-option" data-q="0" data-val="baja"><i data-lucide="cloud" class="quiz-icon"></i> Poca luz o sombra<span>Rincón interior o pasillos</span></button>
+        </div>
+      </div>
+
+      <!-- Paso 2: Espacio -->
+      <div class="quiz-step" id="quiz-step-2">
+        <p class="quiz-question-num">Pregunta 2 de 5</p>
+        <h3 class="quiz-question">¿Cuánto espacio tienes disponible?</h3>
+        <div class="quiz-options">
+          <button class="quiz-option" data-q="1" data-val="grande"><i data-lucide="home" class="quiz-icon"></i> Grande<span>Suelo o esquina amplia</span></button>
+          <button class="quiz-option" data-q="1" data-val="medio"><i data-lucide="layers" class="quiz-icon"></i> Mediano<span>Estante o mesa</span></button>
+          <button class="quiz-option" data-q="1" data-val="pequeño"><i data-lucide="monitor" class="quiz-icon"></i> Pequeño<span>Escritorio o repisa</span></button>
+        </div>
+      </div>
+
+      <!-- Paso 3: Riego -->
+      <div class="quiz-step" id="quiz-step-3">
+        <p class="quiz-question-num">Pregunta 3 de 5</p>
+        <h3 class="quiz-question">¿Con qué frecuencia quieres regar?</h3>
+        <div class="quiz-options">
+          <button class="quiz-option" data-q="2" data-val="frecuente"><i data-lucide="droplets" class="quiz-icon"></i> Me encanta cuidarlas<span>Riego frecuente, mucha atención</span></button>
+          <button class="quiz-option" data-q="2" data-val="moderado"><i data-lucide="droplet" class="quiz-icon"></i> De vez en cuando<span>Cada semana o dos</span></button>
+          <button class="quiz-option" data-q="2" data-val="poco"><i data-lucide="cactus" class="quiz-icon"></i> Lo menos posible<span>Casi sin riego, muy olvidadizo</span></button>
+        </div>
+      </div>
+
+      <!-- Paso 4: Experiencia -->
+      <div class="quiz-step" id="quiz-step-4">
+        <p class="quiz-question-num">Pregunta 4 de 5</p>
+        <h3 class="quiz-question">¿Cuál es tu nivel de experiencia?</h3>
+        <div class="quiz-options">
+          <button class="quiz-option" data-q="3" data-val="principiante"><i data-lucide="sprout" class="quiz-icon"></i> Principiante total<span>Primera planta en casa</span></button>
+          <button class="quiz-option" data-q="3" data-val="intermedio"><i data-lucide="leaf" class="quiz-icon"></i> Algo de experiencia<span>Ya he tenido alguna planta</span></button>
+          <button class="quiz-option" data-q="3" data-val="experto"><i data-lucide="tree-pine" class="quiz-icon"></i> Experto verde<span>Mi casa es una jungla</span></button>
+        </div>
+      </div>
+
+      <!-- Paso 5: Valor -->
+      <div class="quiz-step" id="quiz-step-5">
+        <p class="quiz-question-num">Pregunta 5 de 5</p>
+        <h3 class="quiz-question">¿Qué es lo que más valoras?</h3>
+        <div class="quiz-options">
+          <button class="quiz-option" data-q="4" data-val="flores"><i data-lucide="flower-2" class="quiz-icon"></i> Que tenga flores bonitas<span>Color y floración</span></button>
+          <button class="quiz-option" data-q="4" data-val="purificación"><i data-lucide="wind" class="quiz-icon"></i> Que purifique el aire<span>Bienestar y salud</span></button>
+          <button class="quiz-option" data-q="4" data-val="decorativa"><i data-lucide="sparkles" class="quiz-icon"></i> Que sea decorativa<span>Impacto visual, diseño</span></button>
+          <button class="quiz-option" data-q="4" data-val="fácil"><i data-lucide="heart" class="quiz-icon"></i> Que sea fácil de cuidar<span>Poco mantenimiento</span></button>
+        </div>
+      </div>
+
+      <!-- Paso 6: Resultado -->
+      <div class="quiz-step" id="quiz-step-6">
+        <p class="quiz-result-intro" id="quizResultIntro"></p>
+        <div class="quiz-result-image-wrap" id="quizResultImgWrap">
+          <img id="quizResultImg" src="" alt="">
+        </div>
+        <h2 class="quiz-result-name" id="quizResultName"></h2>
+        <p class="quiz-result-family" id="quizResultFamily"></p>
+        <p class="quiz-result-desc" id="quizResultDesc"></p>
+        <div class="modal-care-grid quiz-result-grid">
+          <div class="modal-care-item">
+            <strong>Luz</strong>
+            <span id="quizResultLuz"></span>
+          </div>
+          <div class="modal-care-item">
+            <strong>Riego</strong>
+            <span id="quizResultRiego"></span>
+          </div>
+          <div class="modal-care-item">
+            <strong>Dificultad</strong>
+            <span id="quizResultDiff"></span>
+          </div>
+          <div class="modal-care-item">
+            <strong>Dato extra</strong>
+            <span id="quizResultDato"></span>
+          </div>
+        </div>
+        <div class="quiz-result-actions">
+          <button class="quiz-btn quiz-btn--outline" id="quizRetry">↩ Volver a intentar</button>
+          <button class="quiz-btn" id="quizClose2">Cerrar</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Indicador de sección -->
+  <nav id="sectionIndicator" aria-label="Navegación por secciones">
+    <button class="sec-dot active" data-index="0" aria-label="Inicio"></button>
+    <button class="sec-dot" data-index="1" aria-label="Superpoderes"></button>
+    <button class="sec-dot" data-index="2" aria-label="Especies"></button>
+    <button class="sec-dot" data-index="3" aria-label="Cuidados"></button>
+  </nav>
 
   <script src="script.js"></script>
 </body>

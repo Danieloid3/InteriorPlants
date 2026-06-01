@@ -1,3 +1,19 @@
 [build]
   publish = "."
   command = ""
+
+[[edge_functions]]
+  path = "/api/track-visit"
+  function = "track-visit"
+
+[[edge_functions]]
+  path = "/api/quiz-start"
+  function = "quiz-start"
+
+[[edge_functions]]
+  path = "/api/quiz-result"
+  function = "quiz-result"
+
+[[edge_functions]]
+  path = "/api/dashboard-data"
+  function = "dashboard-data"

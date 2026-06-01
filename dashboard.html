@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Métricas | El Poder de las Plantas</title>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap');
+
+    :root {
+      --bg-color: #FFF2F4;
+      --c-yellow: #FFD166;
+      --c-mint: #06D6A0;
+      --c-pink: #EF476F;
+      --c-blue: #118AB2;
+      --c-purple: #B28DFF;
+      --c-orange: #FF9F1C;
+      --text-dark: #073B4C;
+      --border-color: #073B4C;
+      --border-width: 4px;
+      --radius-card: 24px;
+      --shadow-flat: 4px 4px 0px #073B4C;
+      --shadow-hover: 8px 8px 0px #073B4C;
+      --font-title: 'Nunito', sans-serif;
+      --font-body: 'Fredoka', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-color);
+      color: var(--text-dark);
+      min-height: 100vh;
+    }
+
+    /* Header */
+    .dash-header {
+      background: var(--text-dark);
+      color: white;
+      padding: 2rem 1.5rem;
+      border-bottom: var(--border-width) solid var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .dash-header-icon {
+      width: 52px;
+      height: 52px;
+      background: var(--c-mint);
+      border: 3px solid white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .dash-header-icon svg { width: 26px; height: 26px; stroke: var(--text-dark); }
+
+    .dash-header h1 {
+      font-family: var(--font-title);
+      font-size: 1.6rem;
+      font-weight: 900;
+      line-height: 1.1;
+    }
+
+    .dash-header p {
+      font-size: 0.85rem;
+      opacity: 0.65;
+      margin-top: 0.2rem;
+    }
+
+    .dash-header a {
+      margin-left: auto;
+      color: var(--c-mint);
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      white-space: nowrap;
+    }
+
+    /* Main layout */
+    .dash-main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    /* Loading / error state */
+    .dash-loading {
+      text-align: center;
+      padding: 4rem 1rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      opacity: 0.5;
+    }
+
+    /* Stat cards row */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat-card {
+      background: white;
+      border: var(--border-width) solid var(--border-color);
+      border-radius: var(--radius-card);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-flat);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .stat-card__label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--c-blue);
+    }
+
+    .stat-card__value {
+      font-family: var(--font-title);
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: var(--text-dark);
+      line-height: 1;
+    }
+
+    .stat-card__sub {
+      font-size: 0.85rem;
+      font-weight: 600;
+      opacity: 0.55;
+    }
+
+    .stat-card--highlight { background: var(--c-mint); }
+    .stat-card--highlight .stat-card__label { color: var(--text-dark); }
+
+    /* Section title */
+    .dash-section-title {
+      font-family: var(--font-title);
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+      margin-top: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .dash-section-title svg { width: 22px; height: 22px; }
+
+    /* Top plant banner */
+    .top-plant-card {
+      background: white;
+      border: var(--border-width) solid var(--border-color);
+      border-radius: var(--radius-card);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-flat);
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .top-plant-badge {
+      background: var(--c-yellow);
+      border: 3px solid var(--border-color);
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-family: var(--font-title);
+      font-size: 1.6rem;
+      font-weight: 900;
+    }
+
+    .top-plant-info h3 {
+      font-family: var(--font-title);
+      font-size: 1.3rem;
+      font-weight: 900;
+    }
+
+    .top-plant-info p {
+      font-size: 0.9rem;
+      opacity: 0.6;
+      margin-top: 0.2rem;
+    }
+
+    /* Chart grid */
+    .chart-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .chart-card {
+      background: white;
+      border: var(--border-width) solid var(--border-color);
+      border-radius: var(--radius-card);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-flat);
+    }
+
+    .chart-card h4 {
+      font-family: var(--font-title);
+      font-size: 1rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      color: var(--text-dark);
+    }
+
+    .chart-card canvas { max-height: 200px; }
+
+    /* Full-width bar chart */
+    .chart-card--wide {
+      grid-column: 1 / -1;
+    }
+
+    .chart-card--wide canvas { max-height: 260px; }
+
+    /* Table */
+    .dash-table-wrap {
+      background: white;
+      border: var(--border-width) solid var(--border-color);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-flat);
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+
+    .dash-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .dash-table th {
+      background: var(--text-dark);
+      color: white;
+      font-family: var(--font-title);
+      font-weight: 800;
+      padding: 0.75rem 1rem;
+      text-align: left;
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .dash-table td {
+      padding: 0.7rem 1rem;
+      border-bottom: 2px solid var(--bg-color);
+      font-weight: 500;
+    }
+
+    .dash-table tr:last-child td { border-bottom: none; }
+    .dash-table tr:nth-child(even) td { background: var(--bg-color); }
+
+    .plant-tag {
+      display: inline-block;
+      background: var(--c-mint);
+      border: 2px solid var(--border-color);
+      border-radius: 100px;
+      padding: 0.2rem 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* Responsive */
+    @media(max-width: 600px) {
+      .dash-header { flex-wrap: wrap; gap: 0.5rem; }
+      .dash-header a { margin-left: 0; }
+      .stat-card__value { font-size: 2rem; }
+      .top-plant-card { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="dash-header">
+  <div class="dash-header-icon">
+    <i data-lucide="bar-chart-3"></i>
+  </div>
+  <div>
+    <h1>Panel de Métricas</h1>
+    <p>El Poder de las Plantas</p>
+  </div>
+  <a href="/" aria-label="Volver al sitio">
+    <i data-lucide="arrow-left" style="width:16px;height:16px;"></i> Volver al sitio
+  </a>
+</header>
+
+<main class="dash-main" id="dashMain">
+  <p class="dash-loading" id="dashLoading">Cargando datos...</p>
+</main>
+
+<script>
+  lucide.createIcons();
+
+  const COLORS = ['#EF476F','#118AB2','#06D6A0','#FFD166','#B28DFF','#FF9F1C','#073B4C','#a8dadc','#f1faee','#457b9d','#1d3557','#e63946'];
+
+  async function loadDashboard() {
+    const main = document.getElementById('dashMain');
+    try {
+      const res = await fetch('/api/dashboard-data');
+      if (!res.ok) throw new Error('Error ' + res.status);
+      const d = await res.json();
+
+      const pct = d.totalVisits > 0
+        ? Math.round((d.totalSubmissions / d.totalVisits) * 100)
+        : 0;
+
+      const topPlant = d.plantRanking[0] ?? { plant: '—', count: 0 };
+
+      main.innerHTML = `
+        <!-- KPI cards -->
+        <div class="stat-row">
+          <div class="stat-card">
+            <span class="stat-card__label">Visitantes totales</span>
+            <span class="stat-card__value">${d.totalVisits.toLocaleString()}</span>
+            <span class="stat-card__sub">Vistas de la página</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card__label">Encuestas completadas</span>
+            <span class="stat-card__value">${d.totalSubmissions.toLocaleString()}</span>
+            <span class="stat-card__sub">Con resultado</span>
+          </div>
+          <div class="stat-card stat-card--highlight">
+            <span class="stat-card__label">Tasa de conversión</span>
+            <span class="stat-card__value">${pct}%</span>
+            <span class="stat-card__sub">Visitantes que completaron</span>
+          </div>
+        </div>
+
+        <!-- Top plant -->
+        ${d.plantRanking.length ? `
+        <h2 class="dash-section-title"><i data-lucide="trophy" style="color:#FFD166"></i> Planta más popular</h2>
+        <div class="top-plant-card">
+          <div class="top-plant-badge">1</div>
+          <div class="top-plant-info">
+            <h3>${topPlant.plant}</h3>
+            <p>${topPlant.count} persona${topPlant.count !== 1 ? 's' : ''} la eligieron</p>
+          </div>
+        </div>
+        ` : ''}
+
+        <!-- Charts -->
+        <h2 class="dash-section-title"><i data-lucide="pie-chart"></i> Distribución de respuestas</h2>
+        <div class="chart-grid">
+          <div class="chart-card">
+            <h4>Luz natural</h4>
+            <canvas id="chartLuz"></canvas>
+          </div>
+          <div class="chart-card">
+            <h4>Espacio disponible</h4>
+            <canvas id="chartEspacio"></canvas>
+          </div>
+          <div class="chart-card">
+            <h4>Frecuencia de riego</h4>
+            <canvas id="chartRiego"></canvas>
+          </div>
+          <div class="chart-card">
+            <h4>Experiencia</h4>
+            <canvas id="chartExperiencia"></canvas>
+          </div>
+          <div class="chart-card">
+            <h4>Lo que más valoran</h4>
+            <canvas id="chartValor"></canvas>
+          </div>
+          ${d.plantRanking.length ? `
+          <div class="chart-card chart-card--wide">
+            <h4>Ranking de plantas elegidas</h4>
+            <canvas id="chartPlantas"></canvas>
+          </div>
+          ` : ''}
+        </div>
+
+        <!-- Recent submissions table -->
+        ${d.recentSubmissions.length ? `
+        <h2 class="dash-section-title"><i data-lucide="list"></i> Últimas respuestas</h2>
+        <div class="dash-table-wrap">
+          <table class="dash-table">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Planta elegida</th>
+                <th>Fecha</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${d.recentSubmissions.map(r => `
+                <tr>
+                  <td>${escHtml(r.name)}</td>
+                  <td><span class="plant-tag">${escHtml(r.result_plant)}</span></td>
+                  <td>${new Date(r.submitted_at).toLocaleString('es-CO', { dateStyle:'short', timeStyle:'short' })}</td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+        ` : ''}
+      `;
+
+      lucide.createIcons();
+      renderCharts(d);
+    } catch (e) {
+      document.getElementById('dashLoading').textContent = 'Error al cargar datos: ' + e.message;
+    }
+  }
+
+  function escHtml(str) {
+    return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  const LABELS_ES = {
+    alta: 'Mucha (directa)', media: 'Indirecta', baja: 'Poca / sombra',
+    grande: 'Grande', medio: 'Mediano', 'pequeño': 'Pequeño',
+    frecuente: 'Frecuente', moderado: 'Moderado', poco: 'Mínimo',
+    principiante: 'Principiante', intermedio: 'Intermedio', experto: 'Experto',
+    'flores': 'Flores bonitas', 'purificación': 'Purifica el aire',
+    'decorativa': 'Decorativa', 'fácil': 'Fácil de cuidar',
+  };
+
+  function makeDonut(id, distribution) {
+    const entries = Object.entries(distribution);
+    if (!entries.length) return;
+    new Chart(document.getElementById(id), {
+      type: 'doughnut',
+      data: {
+        labels: entries.map(([k]) => LABELS_ES[k] ?? k),
+        datasets: [{ data: entries.map(([, v]) => v), backgroundColor: COLORS, borderColor: '#073B4C', borderWidth: 2 }],
+      },
+      options: {
+        plugins: { legend: { position: 'bottom', labels: { font: { family: 'Fredoka', size: 13 }, padding: 12 } } },
+        responsive: true,
+      },
+    });
+  }
+
+  function renderCharts(d) {
+    makeDonut('chartLuz', d.luzDistribution);
+    makeDonut('chartEspacio', d.espacioDistribution);
+    makeDonut('chartRiego', d.riegoDistribution);
+    makeDonut('chartExperiencia', d.experienciaDistribution);
+    makeDonut('chartValor', d.valorDistribution);
+
+    if (d.plantRanking.length && document.getElementById('chartPlantas')) {
+      new Chart(document.getElementById('chartPlantas'), {
+        type: 'bar',
+        data: {
+          labels: d.plantRanking.map(r => r.plant),
+          datasets: [{
+            label: 'Veces elegida',
+            data: d.plantRanking.map(r => r.count),
+            backgroundColor: COLORS,
+            borderColor: '#073B4C',
+            borderWidth: 2,
+            borderRadius: 8,
+          }],
+        },
+        options: {
+          indexAxis: 'y',
+          plugins: { legend: { display: false } },
+          scales: {
+            x: { ticks: { font: { family: 'Fredoka' } }, grid: { color: '#f0e8ea' } },
+            y: { ticks: { font: { family: 'Fredoka', size: 12 } } },
+          },
+          responsive: true,
+        },
+      });
+    }
+  }
+
+  loadDashboard();
+</script>
+</body>
+</html>

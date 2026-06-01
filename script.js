@@ -124,6 +124,7 @@ function initPlantModals() {
   // Elementos internos del modal
   const mImgWrap = document.getElementById('m-imgWrap');
   const mImg = document.getElementById('m-img');
+  const mCommon = document.getElementById('m-common');
   const mTitle = document.getElementById('m-title');
   const mSub = document.getElementById('m-sub');
   const mDesc = document.getElementById('m-desc');
@@ -138,7 +139,9 @@ function initPlantModals() {
       // Poblar datos
       mImg.src = card.getAttribute('data-img');
       mImgWrap.style.backgroundColor = card.getAttribute('data-color');
-      
+
+      mCommon.textContent = card.getAttribute('data-common') || '';
+      mCommon.style.display = card.getAttribute('data-common') ? 'inline-block' : 'none';
       mTitle.textContent = card.getAttribute('data-name');
       mSub.textContent = card.getAttribute('data-sub');
       mDesc.textContent = card.getAttribute('data-desc');
@@ -238,87 +241,111 @@ function initCarouselDotsFor(carouselId, dotsId) {
 function initQuiz() {
   const PLANTS = [
     {
-      name: 'Monstera Deliciosa', family: 'Familia: Araceae | Origen: México',
+      name: 'Monstera Deliciosa', common: 'Costilla de Adán / Balazo',
+      family: 'Familia: Araceae | Origen: México',
       luz: 'media', espacio: 'grande', riego: 'moderado', experiencia: 'intermedio', valor: 'decorativa',
-      desc: 'La reina de las plantas de interior. Sus hojas fenestradas son únicas y le dan un toque selvático e impactante a cualquier espacio.',
-      cuidado: 'Luz indirecta brillante, riego cada 1-2 semanas', dato: 'Sus agujeros en las hojas le permiten resistir vientos fuertes en su hábitat natural.',
+      desc: 'Sus agujeros en las hojas no son un defecto, ¡son su superpoder! Los desarrolló para aguantar vientos fuertes en la selva y dejar pasar la luz a sus vecinas de abajo.',
+      cuidado: 'Luz indirecta brillante', riego: 'Cada 1 o 2 semanas',
+      dato: 'Puede crecer hasta 3 metros dentro de tu casa. Con un palo de musgo, trepa feliz y saca hojas enormes.',
       img: '', color: 'var(--c-pink)',
     },
     {
-      name: 'Epipremnum Aureum', family: 'Familia: Araceae | Origen: Sudeste Asiático',
+      name: 'Epipremnum Aureum', common: 'Poto / Pothos',
+      family: 'Familia: Araceae | Origen: Sudeste Asiático',
       luz: 'baja', espacio: 'pequeño', riego: 'moderado', experiencia: 'principiante', valor: 'purificación',
-      desc: 'El Pothos es casi indestructible. Cuelga elegante desde estantes y tolera el olvido con una sonrisa. Perfecta para empezar.',
-      cuidado: 'Tolera poca luz, riego cuando la tierra esté seca', dato: 'Puede purificar el aire de formaldehído y benceno según estudios de la NASA.',
+      desc: 'Esta planta no conoce el rendirse. Crece en oficinas oscuras, en rincones sin ventana, y hasta olvidada semanas enteras. La amiga más tolerante del reino vegetal.',
+      cuidado: 'Tolera desde poca luz hasta indirecta brillante', riego: 'Cuando la tierra esté seca',
+      dato: 'La NASA la usó en sus estudios de purificación de aire: se come el formaldehído y el benceno.',
       img: '', color: 'var(--c-blue)',
     },
     {
-      name: 'Dracaena Trifasciata', family: 'Familia: Asparagaceae | Origen: África Tropical',
+      name: 'Dracaena Trifasciata', common: 'Lengua de Suegra / Sanseviera',
+      family: 'Familia: Asparagaceae | Origen: África Tropical',
       luz: 'baja', espacio: 'pequeño', riego: 'poco', experiencia: 'principiante', valor: 'fácil',
-      desc: 'La Lengua de Suegra es la campeona del abandono. Acumula agua en sus hojas y puede pasar semanas sin que la toques.',
-      cuidado: 'Cualquier luz, riego cada 3-6 semanas', dato: 'Fotosíntesis de tipo CAM: absorbe CO₂ de noche y libera O₂, ideal para el dormitorio.',
+      desc: 'Duerme durante el día para no perder agua, y respira de noche. Es como una planta con turno nocturno. Casi no necesita riego y sobrevive en los rincones más olvidados.',
+      cuidado: 'Cualquier luz, incluso baños sin ventana', riego: 'Cada 3 a 6 semanas',
+      dato: 'Perfecta para el cuarto: absorbe CO₂ de noche y suelta O₂, al revés que la mayoría de plantas.',
       img: '', color: 'var(--c-purple)',
     },
     {
-      name: 'Spathiphyllum', family: 'Familia: Araceae | Origen: América Tropical',
+      name: 'Spathiphyllum', common: 'Lirio de Paz / Cuna de Moisés',
+      family: 'Familia: Araceae | Origen: América Tropical',
       luz: 'baja', espacio: 'medio', riego: 'frecuente', experiencia: 'intermedio', valor: 'flores',
-      desc: 'El Lirio de Paz florece en interiores con poca luz, algo poco común. Sus flores blancas elegantes alegran cualquier rincón oscuro.',
-      cuidado: 'Poca luz, riego frecuente, ambiente húmedo', dato: 'Te avisa cuando tiene sed: sus hojas caen dramáticamente. Con agua, se recupera en horas.',
+      desc: 'Hace algo que pocas logran: florecer dentro de casa, sin sol directo. Y cuando tiene sed, te lo dice de la manera más dramática posible: se deja caer todita. Pero con agua vuelve.',
+      cuidado: 'Poca a media luz, ambiente húmedo', riego: 'Frecuente, no dejarla secar',
+      dato: 'Purifica el aire de amoníaco y acetona. Bonita y útil, la combinación perfecta.',
       img: '', color: 'var(--c-yellow)',
     },
     {
-      name: 'Ficus Lyrata', family: 'Familia: Moraceae | Origen: África Occidental',
+      name: 'Ficus Lyrata', common: 'Ficus Lira / Violinero',
+      family: 'Familia: Moraceae | Origen: África Occidental',
       luz: 'alta', espacio: 'grande', riego: 'moderado', experiencia: 'experto', valor: 'decorativa',
-      desc: 'El Ficus Lyrata es el árbol favorito de los diseñadores de interiores. Sus hojas en forma de violín son magnéticas y estructurales.',
-      cuidado: 'Mucha luz indirecta, riego moderado, no moverlo', dato: 'Odia los cambios de lugar. Moverlo puede provocar que suelte todas sus hojas.',
+      desc: 'El árbol favorito de los diseñadores de interiores. Sus hojas enormes en forma de violín son puro impacto visual. Eso sí, es un poco dramático: odia que lo muevan.',
+      cuidado: 'Mucha luz indirecta, no cambiarla de lugar', riego: 'Moderado, verificar tierra',
+      dato: 'Si lo cambias de sitio puede botar todas las hojas de un día para otro. Y luego volver a sacarlas cuando se acostumbra.',
       img: '', color: 'var(--c-mint)',
     },
     {
-      name: 'Aloe Vera', family: 'Familia: Asphodelaceae | Origen: Península Arábiga',
+      name: 'Aloe Vera', common: 'Sábila',
+      family: 'Familia: Asphodelaceae | Origen: Península Arábiga',
       luz: 'alta', espacio: 'pequeño', riego: 'poco', experiencia: 'principiante', valor: 'fácil',
-      desc: 'El Aloe es una farmacia en maceta. Fácil de cuidar, necesita sol y casi nada de agua. Un clásico que nunca falla.',
-      cuidado: 'Sol directo o luz brillante, riego cada 2-3 semanas', dato: 'El gel de sus hojas tiene propiedades antiinflamatorias usadas en medicina y cosmética.',
+      desc: 'Una farmacia en maceta. Necesita sol y casi nada de agua. Y si te quemas o te pica algo, abres una hoja y te la unta. Lleva miles de años en la casa de la gente y por algo es.',
+      cuidado: 'Sol directo o luz muy brillante', riego: 'Cada 2 o 3 semanas',
+      dato: 'El gel de sus hojas se usa en cremas, medicamentos y hasta en bebidas. Es una planta de verdad útil.',
       img: '', color: 'var(--c-orange)',
     },
     {
-      name: 'Calathea Orbifolia', family: 'Familia: Marantaceae | Origen: Bolivia',
+      name: 'Calathea Orbifolia', common: 'Calatea',
+      family: 'Familia: Marantaceae | Origen: Bolivia',
       luz: 'media', espacio: 'medio', riego: 'frecuente', experiencia: 'experto', valor: 'decorativa',
-      desc: 'La Calathea es la obra de arte del reino vegetal. Sus hojas rayadas en verde y plata son visualmente hipnóticas.',
-      cuidado: 'Luz indirecta, riego frecuente con agua sin cloro, humedad alta', dato: 'Sus hojas se mueven siguiendo la luz durante el día, fenómeno llamado nictinastia.',
+      desc: 'La obra de arte del reino vegetal. Sus hojas rayadas en verde y plata son hipnóticas. Eso sí, es exigente: necesita agua sin cloro, humedad alta y mucha atención.',
+      cuidado: 'Luz indirecta, agua sin cloro, humedad constante', riego: 'Frecuente y con cuidado',
+      dato: 'Sus hojas se mueven durante el día siguiendo la luz. De noche se enrollan. Todo en silencio.',
       img: '', color: 'var(--c-pink)',
     },
     {
-      name: 'Zamioculcas Zamiifolia', family: 'Familia: Araceae | Origen: África Oriental',
+      name: 'Zamioculcas Zamiifolia', common: 'ZZ Plant / Zamioculca',
+      family: 'Familia: Araceae | Origen: África Oriental',
       luz: 'baja', espacio: 'medio', riego: 'poco', experiencia: 'principiante', valor: 'fácil',
-      desc: 'La ZZ Plant es el superhéroe del descuido. Tolera oscuridad, sequía y abandono total. Casi imposible de matar.',
-      cuidado: 'Poca o ninguna luz directa, riego muy esporádico', dato: 'Almacena agua en sus rizomas subterráneos, lo que la hace extremadamente resistente a la sequía.',
+      desc: 'El superhéroe del descuido. Tolera oscuridad, sequía y abandono total. Si pudieras matar esta planta, sería todo un logro. Casi no se puede.',
+      cuidado: 'Cualquier luz, incluso muy poca', riego: 'Muy esporádico, cada mes o más',
+      dato: 'Guarda agua en unos bulbos subterráneos. Por eso aguanta tanto sin riego: tiene su propia reserva.',
       img: '', color: 'var(--c-mint)',
     },
     {
-      name: 'Helecho de Boston', family: 'Familia: Nephrolepidaceae | Origen: Trópicos',
+      name: 'Helecho de Boston', common: 'Helecho Colgante',
+      family: 'Familia: Nephrolepidaceae | Origen: Trópicos',
       luz: 'media', espacio: 'medio', riego: 'frecuente', experiencia: 'intermedio', valor: 'purificación',
-      desc: 'El Helecho de Boston crea ambientes frescos y naturales con sus frondas colgantes. Ideal para baños o cocinas húmedas.',
-      cuidado: 'Luz indirecta, riego frecuente, humedad constante', dato: 'Uno de los mejores purificadores de aire: elimina formaldehído con gran eficiencia.',
+      desc: 'Crea ese ambiente fresco y selvático que convierte cualquier rincón en algo especial. Perfecta para baños o cocinas donde hay humedad natural.',
+      cuidado: 'Luz indirecta, no le gusta el sol directo', riego: 'Frecuente, tierra siempre algo húmeda',
+      dato: 'Es uno de los mejores purificadores de aire del mundo vegetal. Se come el formaldehído con ganas.',
       img: '', color: 'var(--c-blue)',
     },
     {
-      name: 'Ficus Elastica', family: 'Familia: Moraceae | Origen: Asia',
+      name: 'Ficus Elastica', common: 'Caucho / Árbol de Caucho',
+      family: 'Familia: Moraceae | Origen: Asia',
       luz: 'media', espacio: 'grande', riego: 'moderado', experiencia: 'intermedio', valor: 'purificación',
-      desc: 'El Árbol de Caucho combina elegancia y resistencia. Sus hojas brillantes y oscuras crean un contraste dramático en interiores.',
-      cuidado: 'Luz indirecta brillante, riego moderado, limpia las hojas', dato: 'Su savia látex fue usada históricamente para fabricar caucho natural.',
+      desc: 'Hojas grandes, brillantes y oscuras que hacen que cualquier espacio se vea más elegante. Purifica el aire y crece despacio, así que dura mucho tiempo contigo.',
+      cuidado: 'Luz indirecta brillante, limpiar las hojas', riego: 'Moderado, dejar secar entre riegos',
+      dato: 'De su savia se fabricó el caucho natural durante años. Hoy está en tu sala, más tranquila.',
       img: '', color: 'var(--c-purple)',
     },
     {
-      name: 'Crassula Ovata', family: 'Familia: Crassulaceae | Origen: Sudáfrica',
+      name: 'Crassula Ovata', common: 'Planta Jade / Árbol de Jade',
+      family: 'Familia: Crassulaceae | Origen: Sudáfrica',
       luz: 'alta', espacio: 'pequeño', riego: 'poco', experiencia: 'principiante', valor: 'decorativa',
-      desc: 'La Planta Jade parece esculpida en madera, con hojas brillantes como piedras preciosas. Suculenta de bajo mantenimiento y larga vida.',
-      cuidado: 'Mucha luz, riego mínimo, tierra que drene bien', dato: 'En muchas culturas se considera planta de la suerte y la prosperidad económica.',
+      desc: 'Parece esculpida en madera, con hojas que brillan como piedras verdes. Suculenta que vive muchos años y no pide casi nada. La tienen en las casas de abuelas de todo el mundo.',
+      cuidado: 'Mucha luz, tierra que drene bien', riego: 'Mínimo, es suculenta',
+      dato: 'En muchas culturas se regala como símbolo de buena suerte y prosperidad. Quizás por eso sobrevive tanto.',
       img: '', color: 'var(--c-orange)',
     },
     {
-      name: 'Anthurium', family: 'Familia: Araceae | Origen: América Tropical',
+      name: 'Anthurium', common: 'Anturio',
+      family: 'Familia: Araceae | Origen: América Tropical',
       luz: 'media', espacio: 'pequeño', riego: 'frecuente', experiencia: 'intermedio', valor: 'flores',
-      desc: 'El Anturio es puro color y elegancia. Sus espatas lacadas en rojo intenso florecen varias veces al año y duran semanas.',
-      cuidado: 'Luz indirecta brillante, riego frecuente pero sin encharcamiento', dato: 'Sus flores en realidad son espatas (hojas modificadas), no pétalos. La flor real es el espádice central.',
+      desc: 'Puro color y actitud. Sus espatas lacadas en rojo brillante florecen varias veces al año y duran semanas. Una de las plantas más bonitas para regalar o quedarse.',
+      cuidado: 'Luz indirecta brillante, sin sol directo', riego: 'Frecuente pero sin encharcar',
+      dato: 'Lo que parece la flor roja es en realidad una hoja modificada. La flor de verdad es el palito central.',
       img: '', color: 'var(--c-pink)',
     },
   ];
@@ -387,18 +414,19 @@ function initQuiz() {
   function showResult(plant) {
     const name = state.name || 'Amigo';
     document.getElementById('quizResultIntro').textContent = name + ', tu planta ideal es...';
+    document.getElementById('quizResultCommon').textContent = plant.common || '';
     document.getElementById('quizResultName').textContent = plant.name;
     document.getElementById('quizResultFamily').textContent = plant.family;
     document.getElementById('quizResultDesc').textContent = plant.desc;
-    document.getElementById('quizResultLuz').textContent = plant.cuidado.split(',')[0];
-    document.getElementById('quizResultRiego').textContent = plant.cuidado.split(',')[1] || 'Moderado';
+    document.getElementById('quizResultLuz').textContent = plant.cuidado;
+    document.getElementById('quizResultRiego').textContent = plant.riego;
     document.getElementById('quizResultDiff').textContent = plant.experiencia.charAt(0).toUpperCase() + plant.experiencia.slice(1);
     document.getElementById('quizResultDato').textContent = plant.dato;
     const imgWrap = document.getElementById('quizResultImgWrap');
     imgWrap.style.backgroundColor = plant.color;
     const img = document.getElementById('quizResultImg');
     img.src = plant.img;
-    img.alt = plant.name;
+    img.alt = plant.common || plant.name;
 
     // Guardar resultado en DB (non-blocking)
     if (state.submissionId) {

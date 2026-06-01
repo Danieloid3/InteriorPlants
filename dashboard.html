@@ -315,6 +315,26 @@
 
   const COLORS = ['#EF476F','#118AB2','#06D6A0','#FFD166','#B28DFF','#FF9F1C','#073B4C','#a8dadc','#f1faee','#457b9d','#1d3557','#e63946'];
 
+  const COMMON_NAMES = {
+    'Monstera Deliciosa': 'Costilla de Adán / Balazo',
+    'Epipremnum Aureum': 'Poto / Pothos',
+    'Dracaena Trifasciata': 'Lengua de Suegra / Sanseviera',
+    'Spathiphyllum': 'Lirio de Paz / Cuna de Moisés',
+    'Ficus Lyrata': 'Ficus Lira / Violinero',
+    'Aloe Vera': 'Sábila',
+    'Calathea Orbifolia': 'Calatea',
+    'Zamioculcas Zamiifolia': 'ZZ Plant / Zamioculca',
+    'Helecho de Boston': 'Helecho Colgante',
+    'Ficus Elastica': 'Caucho / Árbol de Caucho',
+    'Crassula Ovata': 'Planta Jade / Árbol de Jade',
+    'Anthurium': 'Anturio',
+  };
+
+  function plantLabel(name) {
+    const common = COMMON_NAMES[name];
+    return common ? `${name} <small style="opacity:0.6">(${common})</small>` : name;
+  }
+
   async function loadDashboard() {
     const main = document.getElementById('dashMain');
     try {
@@ -354,7 +374,8 @@
         <div class="top-plant-card">
           <div class="top-plant-badge">1</div>
           <div class="top-plant-info">
-            <h3>${topPlant.plant}</h3>
+            <h3>${escHtml(topPlant.plant)}</h3>
+            <p style="color:var(--c-mint);font-weight:700">${escHtml(COMMON_NAMES[topPlant.plant] || '')}</p>
             <p>${topPlant.count} persona${topPlant.count !== 1 ? 's' : ''} la eligieron</p>
           </div>
         </div>
@@ -407,7 +428,10 @@
               ${d.recentSubmissions.map(r => `
                 <tr>
                   <td>${escHtml(r.name)}</td>
-                  <td><span class="plant-tag">${escHtml(r.result_plant)}</span></td>
+                  <td>
+                    <span class="plant-tag">${escHtml(r.result_plant)}</span>
+                    ${COMMON_NAMES[r.result_plant] ? `<br><small style="opacity:0.6">${escHtml(COMMON_NAMES[r.result_plant])}</small>` : ''}
+                  </td>
                   <td>${new Date(r.submitted_at).toLocaleString('es-CO', { dateStyle:'short', timeStyle:'short' })}</td>
                 </tr>
               `).join('')}
